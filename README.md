@@ -4,6 +4,9 @@ Interview Genie is an AI-powered real-time interview assistant that transcribes 
 
 ![Interview Genie Demo](./public/demo.gif)
 
+![Screenshot 2024-11-21 at 3 23 51 PM](https://github.com/user-attachments/assets/9fd0ed2d-37ad-484c-a249-a0c383f5380a)
+
+![Screenshot 2024-11-21 at 3 24 07 PM](https://github.com/user-attachments/assets/6b43a226-c9ca-4ec9-aeed-642221cf8c00)
 
 
 ## ✨ Features
