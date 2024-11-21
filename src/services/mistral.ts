@@ -4,22 +4,25 @@ export const createMistralClient = (apiKey: string) => {
   return new MistralClient(apiKey);
 };
 
-export const getAIResponse = async (apiKey: string, question: string): Promise<string> => {
+export const getAIResponse = async (apiKey: string, question: string, chatHistory: ChatMessage[]): Promise<string> => {
   try {
     const client = createMistralClient(apiKey);
     
-    const prompt = `You are a professional interviewee. Provide a clear, concise, and professional answer to the following interview question. Focus on being specific and providing relevant examples when appropriate.
-
-Question: "${question}"
-
-Format your response in a clear, structured way. If relevant, include:
-1. A direct answer to the question
-2. A specific example or explanation
-3. A brief conclusion`;
+    const messages = [
+      {
+        role: "system",
+        content: "You are a professional interviewee. Provide clear, concise, and professional answers to interview questions. Focus on being specific and providing relevant examples when appropriate."
+      },
+      ...chatHistory.map(msg => ({
+        role: msg.role,
+        content: msg.content
+      })),
+      { role: "user", content: question }
+    ];
 
     const response = await client.chat({
       model: "mistral-tiny",
-      messages: [{ role: "user", content: prompt }],
+      messages: messages,
     });
 
     return response.choices[0].message.content;

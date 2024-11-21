@@ -20,6 +20,7 @@ function App() {
     anthropicApiKey: localStorage.getItem('anthropicApiKey') || '',
     selectedProvider: (localStorage.getItem('selectedProvider') as 'mistral' | 'anthropic') || 'mistral',
     isLoading: false,
+    chatHistory: [],
   });
 
   const handleMistralKeyChange = (key: string) => {
@@ -51,10 +52,20 @@ function App() {
 
     setState(prev => ({ ...prev, isLoading: true }));
     try {
+      const updatedHistory = [...state.chatHistory, { role: 'user', content: question }];
+      
       const response = state.selectedProvider === 'mistral'
-        ? await getAIResponse(apiKey, question)
-        : await getAnthropicResponse(apiKey, question);
-      setState(prev => ({ ...prev, aiResponse: response, isLoading: false }));
+        ? await getAIResponse(apiKey, question, state.chatHistory)
+        : await getAnthropicResponse(apiKey, question, state.chatHistory);
+
+      updatedHistory.push({ role: 'assistant', content: response });
+      
+      setState(prev => ({ 
+        ...prev, 
+        aiResponse: response, 
+        isLoading: false,
+        chatHistory: updatedHistory
+      }));
     } catch (error) {
       toast.error(error instanceof Error ? error.message : 'Failed to get AI response');
       setState(prev => ({ ...prev, isLoading: false }));

@@ -1,3 +1,8 @@
+export interface ChatMessage {
+  role: 'user' | 'assistant';
+  content: string;
+}
+
 export interface InterviewState {
   isRecording: boolean;
   transcription: string;
@@ -6,6 +11,7 @@ export interface InterviewState {
   anthropicApiKey: string;
   selectedProvider: 'mistral' | 'anthropic';
   isLoading: boolean;
+  chatHistory: ChatMessage[];
 }
 
 export interface AudioRecorderProps {

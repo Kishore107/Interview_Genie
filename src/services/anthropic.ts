@@ -1,7 +1,20 @@
 import { ANTHROPIC_API_URL } from '../config';
+import { ChatMessage } from '../types';
 
-export const getAnthropicResponse = async (apiKey: string, question: string): Promise<string> => {
+export const getAnthropicResponse = async (apiKey: string, question: string, chatHistory: ChatMessage[]): Promise<string> => {
   try {
+    const messages = [
+      {
+        role: "system",
+        content: "You are a professional interviewee. Provide clear, concise, and professional answers to interview questions. Focus on being specific and providing relevant examples when appropriate."
+      },
+      ...chatHistory.map(msg => ({
+        role: msg.role,
+        content: msg.content
+      })),
+      { role: "user", content: question }
+    ];
+
     const response = await fetch(ANTHROPIC_API_URL, {
       method: 'POST',
       headers: {
@@ -10,17 +23,7 @@ export const getAnthropicResponse = async (apiKey: string, question: string): Pr
       },
       body: JSON.stringify({
         model: 'claude-3-opus-20240229',
-        messages: [{
-          role: 'user',
-          content: `You are a professional interviewee. Provide a clear, concise, and professional answer to the following interview question. Focus on being specific and providing relevant examples when appropriate.
-
-Question: "${question}"
-
-Format your response in a clear, structured way. If relevant, include:
-1. A direct answer to the question
-2. A specific example or explanation
-3. A brief conclusion`
-        }],
+        messages: messages,
         max_tokens: 1000,
       }),
     });
