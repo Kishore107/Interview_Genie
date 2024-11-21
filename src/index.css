@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased text-gray-900 min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50;
+    background-size: 200% 200%;
+    animation: gradientAnimation 15s ease infinite;
+  }
+
+  @keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  code {
+    @apply bg-gray-800 text-gray-100 px-2 py-1 rounded-md font-mono text-sm;
+  }
+
+  pre {
+    @apply bg-gray-800 text-gray-100 p-4 rounded-lg overflow-x-auto my-4 font-mono text-sm;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-xl font-medium transition-all duration-300;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-blue-500 to-indigo-500 text-white hover:from-blue-600 hover:to-indigo-600 hover:shadow-lg transform hover:-translate-y-0.5;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-gray-800 hover:bg-gray-50 hover:shadow-lg transform hover:-translate-y-0.5 border border-gray-200;
+  }
+
+  .card {
+    @apply bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100/50;
+  }
+
+  .glass-effect {
+    @apply bg-white/70 backdrop-blur-md border border-white/20;
+  }
+
+  .code-block {
+    @apply relative;
+  }
+
+  .code-block::before {
+    @apply absolute top-0 right-0 bg-gray-700 text-gray-300 px-2 py-1 text-xs rounded-bl-md;
+    content: attr(data-language);
+  }
+}
