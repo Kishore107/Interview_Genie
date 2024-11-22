@@ -100,6 +100,6 @@ Kishore Kumar
 
 ## 🙏 Acknowledgments
 
-- Mistral AI and Anthropic for powering the responses
-- The React and Vite communities for excellent tools
-- All contributors and users of Interview Buddy
+- Mistral AI and Anthropic for powering the responses.
+- The React and Vite communities for excellent tools.
+- All contributors and users of Interview Buddy.
