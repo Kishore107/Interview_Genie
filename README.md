@@ -11,9 +11,9 @@ Interview Genie is an AI-powered real-time interview assistant that transcribes 
 
 ## ✨ Features
 
-- **Real-time Voice Transcription**: Instantly converts your speech to text
-- **AI-Powered Responses**: Get immediate feedback using Mistral AI or Anthropic's Claude
-- **Modern UI**: Clean, responsive interface built with React and Tailwind CSS
+- **Real-time Voice Transcription**: Instantly converts your speech to text.
+- **AI-Powered Responses**: Get immediate feedback using Mistral AI or Anthropic's Claude.
+- **Modern UI**: Clean, responsive interface built with React and Tailwind CSS.
 - **Secure**: Your API keys are stored locally and never transmitted to any server.
 - **Multiple AI Providers**: Choose between Mistral AI and Anthropic for responses.
 
