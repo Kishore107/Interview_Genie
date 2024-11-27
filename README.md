@@ -54,9 +54,9 @@ npm run dev
 
 ## 💡 Usage
 
-1. When you first open the app, you'll be prompted to enter your API keys
-2. Choose your preferred AI provider (Mistral AI or Anthropic)
-3. The keys will be securely stored in your browser's local storage
+1. When you first open the app, you'll be prompted to enter your API keys.
+2. Choose your preferred AI provider (Mistral AI or Anthropic).
+3. The keys will be securely stored in your browser's local storage.
 4. Click the microphone icon to start voice recording (make sure to allow microphone permissions)
 5. Speak clearly into your microphone
 6. Your voice will be transcribed in real-time using the Web Speech API
