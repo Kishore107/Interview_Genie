@@ -57,12 +57,12 @@ npm run dev
 1. When you first open the app, you'll be prompted to enter your API keys.
 2. Choose your preferred AI provider (Mistral AI or Anthropic).
 3. The keys will be securely stored in your browser's local storage.
-4. Click the microphone icon to start voice recording (make sure to allow microphone permissions)
-5. Speak clearly into your microphone
-6. Your voice will be transcribed in real-time using the Web Speech API
-7. The selected AI provider will process your input and provide relevant responses
-8. Click the microphone icon again to stop recording
-9. You can view your conversation history in the chat interface
+4. Click the microphone icon to start voice recording (make sure to allow microphone permissions).
+5. Speak clearly into your microphone.
+6. Your voice will be transcribed in real-time using the Web Speech API.
+7. The selected AI provider will process your input and provide relevant responses.
+8. Click the microphone icon again to stop recording.
+9. You can view your conversation history in the chat interface.
 
 ## 🔑 Environment Variables
 
